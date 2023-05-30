@@ -20,49 +20,50 @@ const index = (req, res) => {
 // 2 - caso exista categoria e não tenha produtos vinculados retornaremos uma mensagem
 //     'Não existem produtos vinculados ao ID informado'
 // 3 - caso exista categoria e tenha produto vinculado, retornaremos os produtos
-const query = (req, res) => {
-    let categorias = [
-        {
-            "id": 1,
-            "descricao": "Moda"
-        },
-        {
-            "id": 2,
-            "descricao": "Games"
-        },
-        {
-            "id": 3,
-            "descricao": "Celulares"
-        },
-        {
-            "id": 4,
-            "descricao": "Beleza"
-        }
-    ]
-    let produtos = [
-        {
-            "id": 10,
-            "descricao": "sapato calvin klein",
-            "quantidade_estoque": 10,
-            "valor": 1000,
-            "categoria_id": 1,
-        },
-        {
-            "id": 20,
-            "descricao": "batom azul boca rosa",
-            "quantidade_estoque": 10,
-            "valor": 30,
-            "categoria_id": 4
-        },
-        {
-            "id": 30,
-            "descricao": "batom roxo boca rosa",
-            "quantidade_estoque": 10,
-            "valor": 30,
-            "categoria_id": 4
-        }
-    ]
+let categorias = [
+    {
+        "id": 1,
+        "descricao": "Moda"
+    },
+    {
+        "id": 2,
+        "descricao": "Games"
+    },
+    {
+        "id": 3,
+        "descricao": "Celulares"
+    },
+    {
+        "id": 4,
+        "descricao": "Beleza"
+    }
+]
 
+let produtos = [
+    {
+        "id": 1,
+        "descricao": "sapato calvin klein",
+        "quantidade_estoque": 10,
+        "valor": 1000,
+        "categoria_id": 1,
+    },
+    {
+        "id": 2,
+        "descricao": "batom azul boca rosa",
+        "quantidade_estoque": 10,
+        "valor": 30,
+        "categoria_id": 4
+    },
+    {
+        "id": 3,
+        "descricao": "batom roxo boca rosa",
+        "quantidade_estoque": 10,
+        "valor": 30,
+        "categoria_id": 4
+    }
+]
+
+const query = (req, res) => {
     let categoriaId = req.query.categoria_id
     let categoriaFiltrada = categorias.find((categoria) => {
         return Number(categoria.id) === Number(categoriaId)
